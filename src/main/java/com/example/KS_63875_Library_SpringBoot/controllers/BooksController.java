@@ -34,6 +34,8 @@ public class BooksController {
 
     @GetMapping("/addBook")
     public String addBook(Model model){
+        Iterable<Author> authors = authorRepository.findAll();
+        model.addAttribute("authors", authors);
         return "add-book";
     }
 
